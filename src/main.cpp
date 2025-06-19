@@ -1,7 +1,14 @@
-#include <iostream>
+#include "account.h"
+#include "admin_panel.h"
+#include "database.h"
+#include "purchase.h"
 
 int main()
 {
-    std::cout << "ok";
-    return 0;
+    Account account;
+    Database database;
+    Purchase purchase;
+    Admin admin;
+
+    account.main(database, purchase, admin);
 }
