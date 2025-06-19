@@ -1,3 +1,0 @@
-/home/us3r/e-store-console/build/CMakeFiles/e-store-console.dir
-/home/us3r/e-store-console/build/CMakeFiles/edit_cache.dir
-/home/us3r/e-store-console/build/CMakeFiles/rebuild_cache.dir

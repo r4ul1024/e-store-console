@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/e-store-console.dir/link.d "CMakeFiles/e-store-console.dir/src/account.cpp.o" "CMakeFiles/e-store-console.dir/src/admin_panel.cpp.o" "CMakeFiles/e-store-console.dir/src/database.cpp.o" "CMakeFiles/e-store-console.dir/src/main.cpp.o" "CMakeFiles/e-store-console.dir/src/purchase.cpp.o" -o e-store-console
