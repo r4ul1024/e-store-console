@@ -2,7 +2,6 @@
 #include "admin_panel.h"
 #include "database.h"
 #include "purchase.h"
-
 #include <iostream>
 
 void Account::main(Database& database, Purchase& purchase, Admin& admin)
