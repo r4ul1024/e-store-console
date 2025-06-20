@@ -15,7 +15,6 @@ public:
     std::vector<std::string> productNamesVector = { "knife1", "knife2", "knife3", "knife4", "knife5" };
     std::vector<float> productPricesVector = { 120.5f, 70.8f, 95.6f, 150.9f, 201.5f };
     std::vector<int> productQuantitiesVector = { 30, 30, 30, 30, 30 };
-    float totalPrice = 0;
 };
 
 #endif

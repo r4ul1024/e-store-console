@@ -7,6 +7,7 @@
 
 class Purchase {
 private:
+    bool purchaseLoop;
     char choice;
     int productIndex;
     int quantity;

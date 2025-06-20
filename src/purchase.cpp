@@ -5,21 +5,30 @@
 
 void Purchase::menu(Database& database)
 {
-    std::cout << "[1] Products\n";
-    std::cout << "[2] Sign out\n\n";
-    std::cout << "Select: ";
-    std::cin >> choice;
+    purchaseLoop = true;
 
-    if (choice == '1') {
-        std::cout << "\033[2J\033[H";
-        Purchase::products(database);
-    } else if (choice == '2') {
-        std::cout << "\033[2J\033[H";
+    while (purchaseLoop) {
+        std::cout << "~~ Purchase ~~\n\n";
+        std::cout << "[1] Products\n";
+        std::cout << "[2] Sign out\n\n";
+        std::cout << "Select: ";
+        std::cin >> choice;
+
+        if (choice == '1') {
+            std::cout << "\033[2J\033[H";
+            Purchase::products(database);
+        } else if (choice == '2') {
+            purchaseLoop = false;
+            std::cout << "\033[2J\033[H";
+        } else {
+            std::cout << "\033[2J\033[H";
+        }
     }
 }
 
 void Purchase::products(Database& database)
 {
+    std::cout << "~~ Products ~~\n\n";
     for (int i = 0; i < database.productNamesVector.size(); i++) {
         std::cout << i << "." << database.productNamesVector[i] << " | Price: " << database.productPricesVector[i] << "$ | " << database.productQuantitiesVector[i] << " Units\n";
     }
@@ -34,16 +43,19 @@ void Purchase::products(Database& database)
             std::cout << "\033[2J\033[H";
             Purchase::order(database);
         } else {
-            std::cout << "net takoqo v nalicii";
+            std::cout << "\033[2J\033[H";
+            std::cout << "That quantity is not available\n\n";
         }
     } else {
-        std::cout << "vvedi pravilniy index";
+        std::cout << "\033[2J\033[H";
+        std::cout << "Invalid index\n\n";
     }
 }
 
 void Purchase::order(Database& database)
 {
     totalPrice = database.productPricesVector[productIndex] * quantity;
+    std::cout << "~~ Order ~~\n\n";
     std::cout << "Name: ";
     std::cin >> name;
     std::cout << "Address: ";
@@ -55,21 +67,19 @@ void Purchase::order(Database& database)
     std::cout << "Card expiry date: ";
     std::cin >> expiryDate;
     std::cout << "CVV/CVC: ";
-    std::cout << cvv;
+    std::cin >> cvv;
 
-    std::cout << "totalPrice: " << totalPrice << "$ podtverdit?\n";
-    std::cout << "[1] order\n";
-    std::cout << "[2] menu\n";
-    std::cout << "select:?";
+    std::cout << "\nTotal price: " << totalPrice << "$\n\n";
+    std::cout << "[1] Confrim order\n";
+    std::cout << "[Any] Cancel\n\n";
+    std::cout << "Select: ";
     std::cin >> choice;
 
     if (choice == '1') {
         database.productQuantitiesVector[productIndex] -= quantity;
-        std::cout << "order oformlen";
-        database.totalPrice -= totalPrice;
-        database.totalPrice = 0;
-
+        std::cout << "\033[2J\033[H";
+        std::cout << "Order completed\n\n";
     } else {
-        database.totalPrice = 0;
+        std::cout << "\033[2J\033[H";
     }
 }

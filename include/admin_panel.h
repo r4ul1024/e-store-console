@@ -7,6 +7,7 @@
 
 class Admin {
 private:
+    bool adminPanelLoop;
     char choice;
     int productIndex;
     std::string productName;
