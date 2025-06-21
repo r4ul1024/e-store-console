@@ -13,7 +13,7 @@ This project is intended as a learning pet-project.
 
 ### Screenshot
 
-![E-Store Console Screenshot](Screenshot_2025-06-21_12-11-17.png)
+![E-Store Console Screenshot](Images/Screenshot_2025-06-21_12-11-17.png)
 
 ---
 
