@@ -10,8 +10,6 @@ Features:
 - Centralized data management via a Database class  
 - Modular structure using OOP
 
-Developed as a learning pet-project.
-
 ### Screenshot
 
 ![E-Store Console Screenshot](images/Screenshot_2025-06-21_12-11-17.png)
@@ -27,5 +25,3 @@ Developed as a learning pet-project.
 - Простая регистрация и вход пользователя  
 - Централизованное хранение данных в классе Database  
 - Модульная структура с использованием ООП
-
-Разработан в учебных целях как pet-проект.
