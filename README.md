@@ -2,28 +2,26 @@
 
 ## English
 
-This is a simple console-based e-store project demonstrating basic OOP concepts in C++.  
-Features include:  
-- Admin panel to add and edit products  
-- Buyer interface to browse products, add to cart, and place orders  
-- Simple user registration and login system  
-- Centralized data storage using a Database class
+This is a console-based e-store project written in C++.  
+Features:  
+- Admin panel for adding and editing products  
+- Buyer interface to browse products, manage cart, and place orders  
+- Basic user registration and login system  
+- Centralized data management via a Database class  
+- Modular structure using OOP
 
-This project is intended as a learning pet-project.
-
-### Screenshot
-
-![E-Store Console Screenshot](Images/Screenshot_2025-06-21_12-11-17.png)
+Developed as a learning pet-project.
 
 ---
 
 ## Русский
 
-Простой консольный проект интернет-магазина, демонстрирующий основы ООП на C++.  
+Консольный проект интернет-магазина на C++.  
 Функции:  
 - Админ-панель для добавления и редактирования товаров  
-- Интерфейс покупателя для просмотра товаров, добавления в корзину и оформления заказа  
+- Интерфейс покупателя для просмотра товаров, управления корзиной и оформления заказов  
 - Простая регистрация и вход пользователя  
-- Централизованное хранение данных в классе Database
+- Централизованное хранение данных в классе Database  
+- Модульная структура с использованием ООП
 
-Проект создан в учебных целях как pet-проект.
+Разработан в учебных целях как pet-проект.
