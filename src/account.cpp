@@ -9,7 +9,9 @@ void Account::main(Database& database, Purchase& purchase, Admin& admin)
     programLoop = true;
 
     while (programLoop) {
-        std::cout << "### E-Store ###\n\n";
+        std::cout << "###############\n";
+        std::cout << "### E-Store ###\n";
+        std::cout << "###############\n\n";
         std::cout << "[1] Buyer\n";
         std::cout << "[2] Admin\n";
         std::cout << "[3] Exit\n\n";
@@ -17,61 +19,62 @@ void Account::main(Database& database, Purchase& purchase, Admin& admin)
         std::cin >> choice;
 
         if (choice == '1') {
-            std::cout << "\n[1] Sign in\n";
-            std::cout << "[2] Sign up\n";
-            std::cout << "[Any] Back\n\n";
-            std::cout << "Select: ";
-            std::cin >> choice;
+            std::cout << "\033[2J\033[H";
+            buyerLoop = true;
+            while (buyerLoop) {
+                std::cout << "### Buyer ###\n\n";
+                std::cout << "[1] Sign in\n";
+                std::cout << "[2] Sign up\n";
+                std::cout << "[Any] Back\n\n";
+                std::cout << "Select: ";
+                std::cin >> choice;
 
-            if (choice == '1') {
-                std::cout << "\033[2J\033[H";
-                std::cout << "~~ Sign in ~~ \n\n";
-                std::cout << "Username: ";
-                std::cin >> username;
-                std::cout << "Password: ";
-                std::cin >> password;
+                if (choice == '1') {
+                    std::cout << "\nUsername: ";
+                    std::cin >> username;
+                    std::cout << "Password: ";
+                    std::cin >> password;
 
-                result = sign_in(database);
-
-                if (result == true) {
-                    std::cout << "\033[2J\033[H";
-                    purchase.menu(database);
-                } else {
-                    std::cout << "\033[2J\033[H";
-                    std::cout << "Username or password is incorrect\n\n";
-                }
-
-            } else if (choice == '2') {
-                std::cout << "\033[2J\033[H";
-                std::cout << "~~ Sign up ~~ \n\n";
-                std::cout << "Username: ";
-                std::cin >> username;
-                std::cout << "Password: ";
-                std::cin >> password;
-                std::cout << "Repeat password: ";
-                std::cin >> rePassword;
-
-                if (password == rePassword) {
-                    result = sign_up(database);
+                    result = sign_in(database);
 
                     if (result == true) {
                         std::cout << "\033[2J\033[H";
-                        std::cout << "Registration successful. Please sign in\n\n";
-                        Account::main(database, purchase, admin);
+                        purchase.main(database);
                     } else {
                         std::cout << "\033[2J\033[H";
-                        std::cout << "Username is already taken\n\n";
+                        std::cout << "* Username or password is incorrect *\n\n";
+                    }
+
+                } else if (choice == '2') {
+                    std::cout << "\nUsername: ";
+                    std::cin >> username;
+                    std::cout << "Password: ";
+                    std::cin >> password;
+                    std::cout << "Repeat password: ";
+                    std::cin >> rePassword;
+
+                    if (password == rePassword) {
+                        result = sign_up(database);
+
+                        if (result == true) {
+                            std::cout << "\033[2J\033[H";
+                            std::cout << "Registration successful. Please sign in\n\n";
+                        } else {
+                            std::cout << "\033[2J\033[H";
+                            std::cout << "* Username is already taken *\n\n";
+                        }
+                    } else {
+                        std::cout << "\033[2J\033[H";
+                        std::cout << "* Passwords do not match *\n\n";
                     }
                 } else {
+                    buyerLoop = false;
                     std::cout << "\033[2J\033[H";
-                    std::cout << "Passwords do not match\n\n";
                 }
-            } else {
-                std::cout << "\033[2J\033[H";
             }
         } else if (choice == '2') {
             std::cout << "\033[2J\033[H";
-            std::cout << "~~ Admin sign in ~~ \n\n";
+            std::cout << "### Admin sign in ###\n\n";
             std::cout << "Username: ";
             std::cin >> username;
             std::cout << "Password: ";
@@ -81,10 +84,10 @@ void Account::main(Database& database, Purchase& purchase, Admin& admin)
 
             if (result == true) {
                 std::cout << "\033[2J\033[H";
-                admin.menu(database);
+                admin.main(database);
             } else {
                 std::cout << "\033[2J\033[H";
-                std::cout << "Username or password is incorrect\n\n";
+                std::cout << "* Username or password is incorrect *\n\n";
             }
         } else if (choice == '3') {
             programLoop = false;

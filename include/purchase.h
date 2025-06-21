@@ -10,13 +10,12 @@ private:
     bool purchaseLoop;
     char choice;
     int productIndex;
-    int quantity;
+    int productQuantity;
     std::string name, address, phoneNumber, cardNumber, expiryDate, cvv;
-    float totalPrice;
 
 public:
-    void menu(Database& database);
-    void products(Database& database);
+    void main(Database& database);
+    void cart(Database& database);
     void order(Database& database);
 };
 

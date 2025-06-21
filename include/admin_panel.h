@@ -15,10 +15,9 @@ private:
     float productPrice;
 
 public:
-    void menu(Database& database);
+    void main(Database& database);
     void add_new_product(Database& database);
     void edit_product(Database& database);
-    void delete_product(Database& database);
 };
 
 #endif

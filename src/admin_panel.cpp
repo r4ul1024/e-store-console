@@ -2,19 +2,18 @@
 #include "database.h"
 #include <iostream>
 
-void Admin::menu(Database& database)
+void Admin::main(Database& database)
 {
     adminPanelLoop = true;
 
     while (adminPanelLoop) {
-        std::cout << "~~ Admin panel ~~\n\n";
+        std::cout << "### Admin panel ###\n\n";
         for (int i = 0; i < database.productNamesVector.size(); i++) {
             std::cout << i << "." << database.productNamesVector[i] << " | Price: " << database.productPricesVector[i] << "$ | " << database.productQuantitiesVector[i] << " Units\n";
         }
         std::cout << "\n[1] Add new product\n";
         std::cout << "[2] Edit product\n";
-        std::cout << "[3] Delete product\n";
-        std::cout << "[4] Sign out\n\n";
+        std::cout << "[3] Sign out\n\n";
         std::cout << "Select: ";
         std::cin >> choice;
 
@@ -23,8 +22,6 @@ void Admin::menu(Database& database)
         } else if (choice == '2') {
             Admin::edit_product(database);
         } else if (choice == '3') {
-            Admin::delete_product(database);
-        } else if (choice == '4') {
             adminPanelLoop = false;
             std::cout << "\033[2J\033[H";
         } else {
@@ -35,7 +32,7 @@ void Admin::menu(Database& database)
 
 void Admin::add_new_product(Database& database)
 {
-    std::cout << "Product name: ";
+    std::cout << "\nProduct name: ";
     std::cin >> productName;
     std::cout << "Product price: ";
     std::cin >> productPrice;
@@ -52,7 +49,7 @@ void Admin::add_new_product(Database& database)
 
 void Admin::edit_product(Database& database)
 {
-    std::cout << "Product index: ";
+    std::cout << "\nProduct index: ";
     std::cin >> productIndex;
 
     std::cout << "\n[1] Edit name\n";
@@ -63,19 +60,19 @@ void Admin::edit_product(Database& database)
     std::cin >> choice;
 
     if (choice == '1') {
-        std::cout << "New name: ";
+        std::cout << "\nNew name: ";
         std::cin >> productName;
         database.productNamesVector[productIndex] = productName;
         std::cout << "\033[2J\033[H";
         std::cout << "Edited\n\n";
     } else if (choice == '2') {
-        std::cout << "New price: ";
+        std::cout << "\nNew price: ";
         std::cin >> productPrice;
         database.productPricesVector[productIndex] = productPrice;
         std::cout << "\033[2J\033[H";
         std::cout << "Edited\n\n";
     } else if (choice == '3') {
-        std::cout << "New quantity: ";
+        std::cout << "\nNew quantity: ";
         std::cin >> productQuantity;
         database.productQuantitiesVector[productIndex] = productQuantity;
         std::cout << "\033[2J\033[H";
@@ -83,19 +80,4 @@ void Admin::edit_product(Database& database)
     } else {
         std::cout << "\033[2J\033[H";
     }
-}
-
-void Admin::delete_product(Database& database)
-{
-    std::cout << "Product index: ";
-    std::cin >> productIndex;
-    auto it1 = database.productNamesVector.begin() + productIndex;
-    auto it2 = database.productPricesVector.begin() + productIndex;
-    auto it3 = database.productQuantitiesVector.begin() + productIndex;
-    database.productNamesVector.erase(it1);
-    database.productPricesVector.erase(it2);
-    database.productQuantitiesVector.erase(it3);
-
-    std::cout << "\033[2J\033[H";
-    std::cout << "Product deleted\n\n";
 }

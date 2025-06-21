@@ -10,6 +10,7 @@
 class Account {
 private:
     bool programLoop;
+    bool buyerLoop;
     char choice;
     std::string username, password, rePassword;
     bool result;
