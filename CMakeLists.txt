@@ -5,6 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB SOURCES "src/*.cpp")
 
-add_executable(e-store-console ${SOURCES})
+add_executable(app ${SOURCES})
 
-target_include_directories(e-store-console PRIVATE include)
+target_include_directories(app PRIVATE include)
