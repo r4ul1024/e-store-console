@@ -1,6 +1,5 @@
 #include "purchase.h"
 #include "database.h"
-
 #include <iostream>
 
 void Purchase::main(Database& database)
