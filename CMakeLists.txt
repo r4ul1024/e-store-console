@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(e-store-console)
+project(e_store_console)
 
 set(CMAKE_CXX_STANDARD 17)
 
